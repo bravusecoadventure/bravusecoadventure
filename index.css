@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --verde: #3d5a3c;
+  --marrom: #8b5e3c;
+  --fundo-claro: #f5f3f0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--fundo-claro);
+  color: var(--verde);
+  padding: 20px;
+}
+
+/* Menu */
+header {
+  background-color: var(--verde);
+  padding: 15px;
+  text-align: center;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Banner com carrossel */
+.banner {
+  position: relative;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background-color: var(--verde);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: carrossel 25s infinite;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.banner h1 {
+  z-index: 2;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+@keyframes carrossel {
+  0%   { background-image: url('foto-bravus-1.jpg'); }
+  20%  { background-image: url('foto-bravus-2.jpg'); }
+  40%  { background-image: url('foto-bravus-3.jpg'); }
+  60%  { background-image: url('foto-bravus-4.jpg'); }
+  80%  { background-image: url('foto-bravus-5.jpg'); }
+  100% { background-image: url('foto-bravus-1.jpg'); }
+}
+
+/* Botões */
+.btn {
+  background-color: var(--marrom);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/* Seções */
+section {
+  margin: 40px 0;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Logo */
+.logo-somos {
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  height: auto;
+}
+
+/* Pacotes */
+.pacote {
+  margin-bottom: 30px;
+}
+
+.pacote img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* Rodapé */
+footer {
+  background-color: var(--verde);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .banner h1 {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .logo-somos {
+    width: 150px;
+  }
+}
