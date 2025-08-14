@@ -1,145 +1,180 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --verde: #3d5a3c;
-  --marrom: #8b5e3c;
-  --fundo-claro: #f5f3f0;
-}
-
+ /* ======== ESTILO GERAL ======== */
 body {
-  font-family: Arial, sans-serif;
-  background-color: var(--fundo-claro);
-  color: var(--verde);
-  padding: 20px;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #4B5D24; /* Verde da logo */
+  color: white;
 }
 
-/* Menu */
+/* ======== MENU SUPERIOR ======== */
 header {
-  background-color: var(--verde);
-  padding: 15px;
-  text-align: center;
+  background-color: #8B5A2B; /* Marrom da logo */
+  padding: 10px 0;
 }
 
 .menu {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
-.menu li a {
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* Banner com carrossel */
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* ======== CARROSSEL (BANNER) ======== */
 .banner {
   position: relative;
-  height: 400px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: white;
-  background-color: var(--verde);
-  z-index: 1;
   overflow: hidden;
 }
 
 .banner::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
-  animation: carrossel 25s infinite;
+  animation: slide 25s infinite; /* 5 imagens, 5s cada */
   z-index: -1;
-  opacity: 0.5;
 }
 
-.banner h1 {
-  z-index: 2;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-@keyframes carrossel {
-  0%   { background-image: url('foto-bravus-1.jpg'); }
-  20%  { background-image: url('foto-bravus-2.jpg'); }
-  40%  { background-image: url('foto-bravus-3.jpg'); }
-  60%  { background-image: url('foto-bravus-4.jpg'); }
-  80%  { background-image: url('foto-bravus-5.jpg'); }
+@keyframes slide {
+  0% { background-image: url('foto-bravus-1.jpg'); }
+  20% { background-image: url('foto-bravus-2.jpg'); }
+  40% { background-image: url('foto-bravus-3.jpg'); }
+  60% { background-image: url('foto-bravus-4.jpg'); }
+  80% { background-image: url('foto-bravus-5.jpg'); }
   100% { background-image: url('foto-bravus-1.jpg'); }
 }
 
-/* Botões */
+.banner h1 {
+  padding: 15px;
+  color: white;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+/* ======== BOTÕES ======== */
 .btn {
-  background-color: var(--marrom);
+  display: inline-block;
+  background-color: #8B5A2B; /* Marrom */
   color: white;
   padding: 10px 20px;
+  border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 15px;
+  transition: background 0.3s ease;
 }
 
-/* Seções */
+.btn:hover {
+  background-color: #A0522D;
+}
+
+/* ======== SEÇÕES ======== */
 section {
-  margin: 40px 0;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 40px 20px;
+  text-align: center;
 }
 
-/* Logo */
+section h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+section p {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ======== ESPAÇOS PERSONALIZADOS ======== */
+
+/* Espaço entre "Explore trilhas..." e botão "Veja nossos pacotes" */
+.chamada p {
+  margin-bottom: 20px;
+}
+
+/* Espaço entre imagem e texto em "Quem Somos" */
 .logo-somos {
   display: block;
   margin: 20px auto;
-  width: 200px;
-  height: auto;
+  max-width: 300px;
 }
 
-/* Pacotes */
+/* Espaço entre título e botão do Google Calendar */
+#calendario p {
+  margin-bottom: 10px;
+}
+
+/* Espaço entre botão do Google Calendar e texto seguinte */
+#calendario img {
+  margin-bottom: 20px;
+}
+
+/* ======== PACOTES ======== */
 .pacote {
-  margin-bottom: 30px;
+  background-color: rgba(176, 176, 176, 0.85); /* Cinza com transparência */
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 800px;
+  border-radius: 8px;
+  color: #222; /* Texto escuro */
 }
 
 .pacote img {
   width: 100%;
-  border-radius: 8px;
-  margin: 10px 0;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px;
 }
 
-/* Rodapé */
-footer {
-  background-color: var(--verde);
+.pacote p {
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.pacote .btn {
+  margin-top: 10px;
+}
+
+/* ======== CONTATO ======== */
+#contato {
   color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-    gap: 10px;
-  }
+#contato a {
+  color: white;
+  text-decoration: none;
+}
 
-  .banner h1 {
-    font-size: 1.8rem;
-    padding: 0 10px;
-  }
+#contato a:hover {
+  text-decoration: underline;
+}
 
-  .logo-somos {
-    width: 150px;
-  }
+/* ======== RODAPÉ ======== */
+footer {
+  background-color: #8B5A2B;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
 }
